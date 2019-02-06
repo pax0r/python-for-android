@@ -594,6 +594,8 @@ tools directory of the Android SDK.
                     help='The permissions to give this app.', nargs='+')
     ap.add_argument('--meta-data', dest='meta_data', action='append',
                     help='Custom key=value to add in application metadata')
+    ap.add_argument('--uses-library', dest='android_used_libs', action='append',
+                    help='Used shared libraries included using <uses-library> tag in AndroidManifest.xml')
     ap.add_argument('--icon', dest='icon',
                     help=('A png file to use as the icon for '
                           'the application.'))
@@ -748,6 +750,9 @@ tools directory of the Android SDK.
 
     if args.meta_data is None:
         args.meta_data = []
+
+    if args.android_used_libs is None:
+        args.android_used_libs = []
 
     if args.services is None:
         args.services = []
